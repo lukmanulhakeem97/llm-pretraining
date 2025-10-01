@@ -63,7 +63,7 @@ def gpt2_scratch_weight_inference(input_text: str):
   model.load_state_dict(checkpoint)
 
   total_params = sum(p.numel() for p in model.parameters())
-  #print(f"Total number of parameters: {total_params:,}")
+  print(f"Total number of parameters: {total_params:,}")
 
   total_size_bytes_ = total_params * 4
   total_size_mb_ = total_size_bytes_ / (1024 * 1024)
@@ -73,28 +73,28 @@ def gpt2_scratch_weight_inference(input_text: str):
   #total_params_gpt2 =  total_params - sum(p.numel() for p in model.out_head.parameters())
   #print(f"Number of trainable parameters considering weight tying: {total_params_gpt2:,}")
 
-  # Calculate parameter size
-  param_size = 0
-  for param in model.parameters():
-      param_size += param.nelement() * param.element_size()
-  print(f"""parameter size: {param_size}
-  param.nelement() {param.nelement()}
-  param.element_size() {param.element_size()}""")
-  print("\n")
+  # # Calculate parameter size
+  # param_size = 0
+  # for param in model.parameters():
+  #     param_size += param.nelement() * param.element_size()
+  # print(f"""parameter size: {param_size}
+  # param.nelement() {param.nelement()}
+  # param.element_size() {param.element_size()}""")
+  # print("\n")
 
-  # Calculate buffer size
-  buffer_size = 0
-  for buffer in model.buffers():
-      buffer_size += buffer.nelement() * buffer.element_size()
-  print(f"""biffer size: {buffer_size}
-  buffer.nelement() {buffer.nelement()}
-  buffer.element_size() {buffer.element_size()}""")
+  # # Calculate buffer size
+  # buffer_size = 0
+  # for buffer in model.buffers():
+  #     buffer_size += buffer.nelement() * buffer.element_size()
+  # print(f"""biffer size: {buffer_size}
+  # buffer.nelement() {buffer.nelement()}
+  # buffer.element_size() {buffer.element_size()}""")
 
-  total_size_bytes = param_size + buffer_size
-  total_size_mb = total_size_bytes / (1024**2)
+  # total_size_bytes = param_size + buffer_size
+  # total_size_mb = total_size_bytes / (1024**2)
 
-  print(f"Total model parameters byte size: {total_size_bytes} bytes")
-  print(f"Total model parameters size: {total_size_mb:.2f} MB")
+  # print(f"Total model parameters byte size: {total_size_bytes} bytes")
+  # print(f"Total model parameters size: {total_size_mb:.2f} MB")
 
   model.eval()
   
