@@ -9,5 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
+README.md
+
 get_versions.py
+model.pth
 model_and_optimizer.pth

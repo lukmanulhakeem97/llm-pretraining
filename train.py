@@ -102,12 +102,13 @@ def main():
   epochs_tensor = torch.linspace(0, num_epochs, len(train_losses))
   plot_losses(epochs_tensor, tokens_seen, train_losses, val_losses)
 
-  torch.save({
-      "model_state_dict": model.state_dict(),
-      "optimizer_state_dict": optimizer.state_dict(),
-      },
-      "model_and_optimizer.pth"
-  )
+  #torch.save({
+  #    "model_state_dict": model.state_dict(),
+  #    "optimizer_state_dict": optimizer.state_dict(),
+  #    },
+  #    "model_and_optimizer.pth"
+  #)
+  torch.save(model.state_dict(), "model.pth")
 
 if __name__ == "__main__":
   main()

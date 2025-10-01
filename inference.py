@@ -56,11 +56,12 @@ def gpt2_openai_weight_inference(input_text: str):
   print("Output text:\n", token_ids_to_text(token_ids, tokenizer))
 
 def gpt2_scratch_weight_inference(input_text: str):
-  checkpoint = torch.load("model_and_optimizer.pth", weights_only=True)
+  #checkpoint = torch.load("model_and_optimizer.pth", weights_only=True)
+  checkpoint = torch.load("model.pth", weights_only=True)
 
   model = GPTModel(GPT_CONFIG_124M)
-  model.load_state_dict(checkpoint["model_state_dict"])
-  model.eval();
+  model.load_state_dict(checkpoint)
+  model.eval()
   
   model.to(device)
 
