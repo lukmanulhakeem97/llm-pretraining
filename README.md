@@ -11,8 +11,15 @@ Pre-requisites are `python<=3.13` and `uv` package manger, instructions to set u
 
    create environment: `uv venv [name]`, name is optional.
    
-   install dependency given in `pyproject.toml` file: `uv sync`.
-3. Activate `venv` by `.\.venv\Scripts\activate`
+   Navigate to cloned repo directory and install dependency given in `pyproject.toml` file:
+      > `cd llm-pretraining`,
+      > `uv sync`.
+4. Activate `venv` by `.\.venv\Scripts\activate`
+
+### Generate text
+- Download pretrained model.pth from my huggingfaceHub and place it on cloned `llm-pretraining` path.
+- 
+
 
 
 
