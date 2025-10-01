@@ -20,7 +20,7 @@ Pre-requisites are `python<=3.13` and `uv` package manger, instructions to set u
 
 ## Run the code
 **Generate text:**
-- Download pretrained `model.pth` from my [huggingfaceHub]() and place it on cloned `llm-pretraining` path.
+- Download pretrained `model.pth` from my [huggingfaceHub](https://huggingface.co/lukmanulhakeem/gpt2-scratch-training/tree/main) and place it on cloned `llm-pretraining` path.
 - Run `inference.py` with any starting prompt
      > by using `model.pth`: `uv run inference.py "Be now, then will be "`.
 
@@ -28,6 +28,7 @@ Pre-requisites are `python<=3.13` and `uv` package manger, instructions to set u
 
 **Pretraining:**
 - Run `uv run train.py`, will generate `model.pth`.
+
 
 
 
