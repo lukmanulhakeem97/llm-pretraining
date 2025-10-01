@@ -1,0 +1,23 @@
+model.pth model configuration
+
+- context_length    : 256 (maximum no. of tokens input can have)
+- vocab_size        : 50257 (maximum no. of unique words/characters model trained on)
+- emb_dim           : 768 (hidden/embedding dimension)
+- n_heads           : 12 (number of attention heads)
+- n_layers          : 12 (number of layers/transformer blocks)
+
+- no. of params     : 123,822,336 (~124M) (after output layer weight-tying)
+- model size        : 619.58 MB (each param of 4 bytes (float32))
+
+
+
+OpenAI gpt2 model configuration
+
+- context_length    : 1024 (maximum no. of tokens input can have)
+- vocab_size        : 50257 (maximum no. of unique words/characters model trained on)
+- emb_dim           : 768 (hidden/embedding dimension)
+- n_heads           : 12 (number of attention heads)
+- n_layers          : 12 (number of layers/transformer blocks)
+
+- no. of params     : 124,439,808 (124M) [include extra qkv_bias params which is set "False" for model.pth] (after output layer weight-tying)
+- model size        : 621.94 MB MB (each param of 4 bytes (float32))

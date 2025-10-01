@@ -35,7 +35,7 @@ def main():
       with open(file_path, "r", encoding="utf-8") as file:
           text_data = file.read()
   
-  tokenizer = tiktoken.get_encoding("gpt2")
+  tokenizer = tiktoken.get_encoding("gpt2") #  use Byte Pair Encoding (BPE)
 
   total_characters = len(text_data)
   total_tokens = len(tokenizer.encode(text_data))
