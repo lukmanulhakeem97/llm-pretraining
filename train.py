@@ -21,6 +21,9 @@ def main():
     "drop_rate": 0.1,      # Dropout rate
     "qkv_bias": False      # Query-key-value bias
   }
+  
+
+  ######## Preparing Data ########
 
   file_path = "./data/the-verdict.txt"
   url = "https://raw.githubusercontent.com/rasbt/LLMs-from-scratch/main/ch02/01_main-chapter-code/the-verdict.txt"
@@ -48,6 +51,9 @@ def main():
   split_idx = int(train_ratio * len(text_data))
   train_data = text_data[:split_idx]
   val_data = text_data[split_idx:]
+
+
+  ####### Creating data loaders ##########
 
   train_loader = create_dataloader_v1(
       train_data,
@@ -80,6 +86,9 @@ def main():
   print("Training tokens:", train_tokens)
   print("Validation tokens:", val_tokens)
   print("All tokens:", train_tokens + val_tokens)
+
+
+  ######### Initializing Model and training ###########
 
   model = GPTModel(GPT_CONFIG_124M)
   model.to(device)
