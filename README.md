@@ -1,5 +1,5 @@
 # Pretraining of GPT2
-This is a llm pretraining of GPT2 124M architecture on a small dataset from scratch. A re-implementation of pretraining done in [LLM-from-sctach](https://github.com/rasbt/LLMs-from-scratch). Trained model can generate text for a given token size.
+This is a llm pretraining of GPT2 124M architecture on a small dataset from scratch. Trained model can generate text for a given token size.
 
 To run and train on low-end cpu only machines, gpt2 architecture pretrained with 256 context size and on a small short-story book text data `./data/the-verdict.txt` . Alternatively, can use OpenAI gpt2 pretrained weights mentioned in below section. Model architecture configuration is given `model_info.txt`.
 
@@ -28,6 +28,10 @@ Pre-requisites are `python<=3.13` and `uv` package manger, instructions to set u
 
 **Pretraining:**
 - Run `uv run train.py`, will generate `model.pth`.
+
+## Credits
+- https://github.com/rasbt/LLMs-from-scratch
+- https://amzn.to/4fqvn0D
 
 
 
