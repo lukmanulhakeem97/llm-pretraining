@@ -12,5 +12,5 @@ wheels/
 README.md
 
 get_versions.py
-model.pth
+gpt2_pretrained.pth
 model_and_optimizer.pth
