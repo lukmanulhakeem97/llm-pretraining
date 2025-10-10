@@ -5,6 +5,8 @@ from utils.training_utils import generate, text_to_token_ids, token_ids_to_text
 from model import GPTModel
 
 
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 GPT_CONFIG_124M = {
       "vocab_size": 50257,   # Vocabulary size
       "context_length": 256, # Shortened context length (orig: 1024)
@@ -14,8 +16,8 @@ GPT_CONFIG_124M = {
       "drop_rate": 0.1,      # Dropout rate
       "qkv_bias": False      # Query-key-value bias
   }
-
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+  
+tokenizer = tiktoken.get_encoding("gpt2")
 
 def gpt2_openai_weight_inference(input_text: str):
   from utils.gpt_download import download_and_load_gpt2
@@ -43,7 +45,6 @@ def gpt2_openai_weight_inference(input_text: str):
   load_weights_into_gpt(gpt, params)
   gpt.to(device)
 
-  tokenizer = tiktoken.get_encoding("gpt2")
   token_ids = generate(
       model=gpt,
       idx=text_to_token_ids(input_text, tokenizer).to(device),
@@ -61,7 +62,7 @@ def gpt2_scratch_weight_inference(input_text: str):
 
   model = GPTModel(GPT_CONFIG_124M)
   model.load_state_dict(checkpoint)
-
+  
   total_params = sum(p.numel() for p in model.parameters())
   print(f"Total number of parameters: {total_params:,}")
 
@@ -97,10 +98,8 @@ def gpt2_scratch_weight_inference(input_text: str):
   # print(f"Total model parameters size: {total_size_mb:.2f} MB")
 
   model.eval()
-  
   model.to(device)
 
-  tokenizer = tiktoken.get_encoding("gpt2")
   token_ids = generate(
       model=model,
       idx=text_to_token_ids(input_text, tokenizer).to(device),
@@ -114,7 +113,7 @@ def gpt2_scratch_weight_inference(input_text: str):
 
 
 if __name__ == "__main__":
-  parser = argparse.ArgumentParser(description="Choose model weights to be loaded.")
+  parser = argparse.ArgumentParser(description="GPT-2 Inference")
 
   parser.add_argument("user_input", type=str, help="Starting prompt.")
   parser.add_argument("--load_openaigpt2_weight", 
