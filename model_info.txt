@@ -20,4 +20,4 @@ OpenAI gpt2 model configuration
 - n_layers          : 12 (number of layers/transformer blocks)
 
 - no. of params     : 124,439,808 (124M) [include extra qkv_bias params which is set "False" for model.pth] (after output layer weight-tying)
-- model size        : 621.94 MB MB (each param of 4 bytes (float32))
+- model size        : 621.94 MB (each param of 4 bytes (float32))
