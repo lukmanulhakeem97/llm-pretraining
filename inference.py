@@ -116,8 +116,12 @@ if __name__ == "__main__":
   parser = argparse.ArgumentParser(description="GPT-2 Inference")
 
   parser.add_argument("user_input", type=str, help="Starting prompt.")
-  parser.add_argument("--load_openaigpt2_weight", 
-  type=str, default="no", help="Set whether to load openai gpt2 weights or not.")
+  parser.add_argument(
+    "--load_openaigpt2_weight", 
+    type=str, 
+    default="no", 
+    help="Set whether to load openai gpt2 weights or not."
+    )
 
   args = parser.parse_args()
   

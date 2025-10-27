@@ -14,3 +14,4 @@ README.md
 get_versions.py
 gpt2_pretrained.pth
 model_and_optimizer.pth
+p1_pretraining.ipynb

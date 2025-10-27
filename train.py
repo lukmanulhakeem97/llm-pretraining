@@ -4,9 +4,9 @@ import urllib.request
 import tiktoken
 import torch
 
-from load_data import create_dataloader_v1
+from load_data import create_dataloader
 from model import GPTModel
-from utils.training_utils import train_model_simple, plot_losses
+from utils.training_utils import train_model, plot_losses
 
 
 def main():
@@ -55,7 +55,7 @@ def main():
 
     ####### Creating data loaders ##########
 
-    train_loader = create_dataloader_v1(
+    train_loader = create_dataloader(
         train_data,
         batch_size=2,
         max_length=GPT_CONFIG_124M["context_length"],
@@ -65,7 +65,7 @@ def main():
         num_workers=0
     )
 
-    val_loader = create_dataloader_v1(
+    val_loader = create_dataloader(
         val_data,
         batch_size=2,
         max_length=GPT_CONFIG_124M["context_length"],
@@ -98,7 +98,7 @@ def main():
     start_time = time.time()
 
     num_epochs = 10
-    train_losses, val_losses, tokens_seen = train_model_simple(
+    train_losses, val_losses, tokens_seen = train_model(
         model, train_loader, val_loader, optimizer, device,
         num_epochs=num_epochs, eval_freq=5, eval_iter=5,
         start_context="Every effort moves you", tokenizer=tokenizer
