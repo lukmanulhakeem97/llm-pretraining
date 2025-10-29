@@ -3,6 +3,8 @@ This is a llm pretraining of GPT2 124M architecture on a small `./data` dataset 
 
 To run and train on low-end cpu only machines, gpt2 architecture pretrained with 256 context size and on a small short-story book text data `./data/the-verdict.txt` . Alternatively, can use OpenAI gpt2 pretrained weights mentioned in below section. Model architecture configuration is given `model_info.txt`.
 
+Datasets consists of 5145 tokens, 4608 token are used in training set.
+
 ## Setup
 Pre-requisites are `python<=3.13` and `uv` package manger, instructions to set up can be found [here](https://docs.astral.sh/uv/getting-started/).
 1. **Clone this repository**
@@ -32,6 +34,7 @@ Pre-requisites are `python<=3.13` and `uv` package manger, instructions to set u
 ## Credits
 - https://github.com/rasbt/LLMs-from-scratch
 - https://amzn.to/4fqvn0D
+
 
 
 
